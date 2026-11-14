@@ -94,6 +94,31 @@ aside{background:#07080cd9}.hd,.send,.bar{background:#07080ccc}
 button.pri{background:linear-gradient(135deg,var(--b),#1a5fd8)}button.grn{background:linear-gradient(135deg,#34A853,#1e7e34)}button.red{background:linear-gradient(135deg,#EA4335,#b3261e)}
 .card{border:1px solid #ffffff12}.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px #0008}.col{background:#0b0d12cc;backdrop-filter:blur(10px)}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#2a3140;border-radius:6px}
+
+#rail{width:68px;background:#05060a;border-right:1px solid #ffffff12;display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:8px;flex:none}
+#rail button{width:46px;height:46px;border-radius:14px;background:none;display:grid;place-items:center;position:relative;padding:0}
+#rail svg{width:22px;height:22px;stroke:var(--m);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#rail button.on{background:#ffffff12}#rail button.on svg,#rail button:hover svg{stroke:var(--t)}
+#rail button.on::before{content:'';position:absolute;left:-11px;width:4px;height:22px;border-radius:4px;background:var(--grad)}#rav .av{width:38px;height:38px}
+.tabs,.top{display:none!important}.bk{display:none}
+.m{animation:none}.mw.new .m{animation:pop .25s}.card{animation:none}
+#toast{background:#161a22;border:1px solid var(--b);box-shadow:0 8px 30px #000a}
+.qt{border-left:3px solid var(--y);background:#0004;padding:4px 8px;border-radius:6px;margin-bottom:5px;font-size:12px;opacity:.85}.qt b{display:block}
+.mi{max-width:240px;min-height:60px;border-radius:10px;display:block;cursor:zoom-in;margin-bottom:4px}.m audio{height:34px;max-width:220px}.m a{color:#9cc2ff}
+.att{background:var(--p2);border-radius:12px;padding:9px 14px;cursor:pointer}#rep{padding:8px 14px;background:var(--p);border-left:3px solid var(--y);font-size:13px;color:var(--m)}
+.ud{width:9px;height:9px;border-radius:50%;background:var(--g);box-shadow:0 0 8px var(--g);flex:none}.pn{opacity:.35;cursor:pointer;font-size:12px}.pn:hover,.pn.on{opacity:1}
+.set{padding:20px;overflow:auto;display:grid;gap:16px;max-width:660px;width:100%;align-content:start}
+.set section{background:#0b0d12cc;border:1px solid #ffffff12;border-radius:16px;padding:14px 18px}.set h3{margin-bottom:6px}
+.sr{display:flex;justify-content:space-between;align-items:center;padding:9px 0;gap:10px;border-bottom:1px solid #ffffff0a}.sr:last-child{border:0}
+.tg input{display:none}.tg i{width:42px;height:24px;border-radius:12px;background:#2a3140;display:block;position:relative;cursor:pointer;transition:.2s}
+.tg i::after{content:'';position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}.tg input:checked+i{background:var(--g)}.tg input:checked+i::after{left:21px}
+.box.wide{width:min(94vw,440px)}.wicon,.wic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;background:#4285F4;flex:none}.wic{width:42px;height:42px;font-size:22px}
+.pk{display:flex;flex-wrap:wrap;gap:6px}.pk span{font-size:22px;cursor:pointer;padding:4px;border-radius:8px}.pk span:hover{background:var(--p2)}
+.pnl{padding:12px 18px;background:#0b0d12e6;max-height:42vh;overflow:auto}.mrow{display:flex;align-items:center;gap:10px;padding:6px 0}.mrow button{padding:4px 9px;font-size:12px}
+.bdg{font-size:11px;border:1px solid #ffffff33;border-radius:20px;padding:1px 8px;white-space:nowrap}
+.prog{display:flex;align-items:center;gap:8px;padding:10px 18px 0;flex-wrap:wrap;font-size:13px;color:var(--m)}.pb{width:160px;height:8px;border-radius:8px;background:#1d222d;overflow:hidden}.pb i{display:block;height:100%;background:var(--grad);transition:width .5s}
+body.cp .m{padding:4px 10px}body.cp .row{padding:8px 16px}body.rm *{animation:none!important}
+@media(max-width:760px){#app{flex-direction:column-reverse}#rail{width:100%;flex-direction:row;padding:6px;justify-content:space-around}#rail button.on::before{display:none}#rail button{margin:0!important}aside{flex:1;min-height:0}.bk{display:inline-block}}
 </style>
 </head>
 <body>
@@ -106,6 +131,7 @@ button.pri{background:linear-gradient(135deg,var(--b),#1a5fd8)}button.grn{backgr
 <p class="fine">Secure Google sign-in. Only registered members can be added.</p></div></div>
 
 <div id="app" class="hide">
+  <nav id="rail"><button id="r-c" class="on" onclick="setTab('c')" title="Chats"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></button><button id="r-w" onclick="setTab('w')" title="Workspaces &amp; tasks"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5-9 5zM3 13l9 5 9-5"/></svg></button><button id="r-m" onclick="openMeet()" title="Meetings"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3"/></svg></button><button id="r-s" onclick="openSettings()" title="Settings" style="margin-top:auto"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></button><button id="rav" onclick="openProfile()" title="Profile"></button></nav>
   <aside>
     <div class="brand"><span id="lgsm"></span><b>1M TeamSpace</b></div>
     <div class="top"><div class="av" id="meav"></div><b id="mename" style="flex:1"></b><button onclick="auth.signOut()">Sign out</button></div>
@@ -183,7 +209,7 @@ async function renderWs(){if(!W||!W.members)return;const A=W.admins.includes(me.
   ${A?`<div class="bar"><input id="tt" placeholder="New task title"><select id="ta">${ms.map(m=>`<option value="${m.i}">${e(m.name)}</option>`).join('')}</select><input id="td" type="date"><button class="pri" onclick="addTask()">Assign task</button>
   <input id="mm" placeholder="Add member by email"><button class="grn" onclick="addMember()">Add member</button></div>`:'<div class="bar" style="color:var(--m)">Only admins can assign tasks. You can update the status of tasks assigned to you.</div>'}
   <div class="board">${cols.map(([k,n,c])=>`<div class="col" style="border-color:${c}"><b>${n} (${T.filter(t=>t.status==k).length})</b>${T.filter(t=>t.status==k).map(t=>`<div class="card"><b>${e(t.title)}</b><small>${e(nm(t.to))}${t.due?' · due '+e(t.due):''}</small>${(A||t.to==me.uid)?cols.filter(x=>x[0]!=k).map(x=>`<button onclick="setSt('${t.id}','${x[0]}')">${x[1]}</button>`).join(''):''}${A?`<button class="red" onclick="delT('${t.id}')">Delete</button>`:''}</div>`).join('')}</div>`).join('')}</div>`}
-const addTask=async()=>{const t=$('#tt').value.trim();if(!t)return;await db.collection('workspaces/'+W.id+'/tasks').add({title:t,to:$('#ta').value,due:$('#td').value,status:'todo',by:me.uid,ts:TS()})};
+var addTask=async()=>{const t=$('#tt').value.trim();if(!t)return;await db.collection('workspaces/'+W.id+'/tasks').add({title:t,to:$('#ta').value,due:$('#td').value,status:'todo',by:me.uid,ts:TS()})};
 const setSt=(id,s)=>db.doc('workspaces/'+W.id+'/tasks/'+id).update({status:s}).catch(x=>toast(x.message));
 const delT=id=>db.doc('workspaces/'+W.id+'/tasks/'+id).delete();
 async function addMember(){const q=$('#mm').value.trim().toLowerCase();const s=await db.collection('users').where('emailLower','==',q).get();
@@ -209,8 +235,8 @@ const tg=k=>ls&&ls.getTracks().filter(t=>t.kind==k).forEach(t=>t.enabled=!t.enab
 auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(()=>{});
 db.enablePersistence({synchronizeTabs:true}).catch(()=>{});
 const er=x=>toast(x.code=='permission-denied'?'Permission denied: publish the new Firestore rules':x.message);
-let TH='#4285F4',wall='aurora',PIC='',CD={},PU={},MS={},FIRST=1,lt=0,unU,unC;
-const on=u=>Date.now()-(u.seen||0)<75000,tm=t=>t?t.toDate().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'…';
+var PF=JSON.parse(localStorage.getItem('pf')||'{}');let TH='#4285F4',wall='aurora',PIC='',CD={},PU={},MS={},FIRST=1,lt=0,unU,unC;
+const on=u=>!u.hs&&Date.now()-(u.seen||0)<130000,tm=t=>t?t.toDate().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'…';
 const applyTheme=c=>{TH=c;document.documentElement.style.setProperty('--b',c)};
 /* animated Google-colour background */
 const cv=$('#bg'),cx=cv.getContext('2d'),CL=['#4285F4','#EA4335','#FBBC05','#34A853'],P=[];
@@ -222,22 +248,21 @@ let mx=0,my2=0;addEventListener('mousemove',e=>{mx=e.clientX/innerWidth-.5;my2=e
 const pr=(x,y,z,ax,ay,S,X0,Y0)=>{let a=x*Math.cos(ay)+z*Math.sin(ay),c=-x*Math.sin(ay)+z*Math.cos(ay),b=y*Math.cos(ax)-c*Math.sin(ax);c=y*Math.sin(ax)+c*Math.cos(ax);const f=3/(3+c);return[X0+a*S*f,Y0+b*S*f,f]};
 (function dr(){const w=cv.width,h=cv.height,t=Date.now()/1000,app=!$('#app').classList.contains('hide');
  cx.globalAlpha=1;cx.shadowBlur=0;cx.fillStyle='#000';cx.fillRect(0,0,w,h);
- if(wall!='plain'){const A=app?.4:(w>900?1:.6),S=Math.min(w,h)*(app?.42:.3),X0=w*(app?.74:(w>900?.7:.5))+mx*40,Y0=h*.5+my2*40,ay=t*.3+mx*1.5,ax=.45+Math.sin(t*.35)*.3+my2;
+ if(wall!='plain'&&PF.bg!='off'&&!PF.rm){const A=app?.4:(w>900?1:.6),S=Math.min(w,h)*(app?.42:.3),X0=w*(app?.74:(w>900?.7:.5))+mx*40,Y0=h*.5+my2*40,ay=t*.3+mx*1.5,ax=.45+Math.sin(t*.35)*.3+my2;
  for(let k=0;k<4;k++){const x=X0+Math.cos(t*.4+k*1.6)*S*1.3,y=Y0+Math.sin(t*.5+k*2)*S*.9,g=cx.createRadialGradient(x,y,0,x,y,S*1.4);g.addColorStop(0,CL[k]+(app?'14':'26'));g.addColorStop(1,'#0000');cx.fillStyle=g;cx.fillRect(0,0,w,h)}
- P.forEach(p=>{p.x=(p.x+p.vx+w)%w;p.y=(p.y+p.vy+h)%h;cx.globalAlpha=.5*A;cx.fillStyle=p.c;cx.fillRect(p.x,p.y,p.r*.6,p.r*.6)});
- const q=pts.map(p=>[...pr(p[0],p[1],p[2],ax,ay,S,X0,Y0),p[3]]).sort((a,b)=>a[2]-b[2]);
+ P.slice(0,app?10:48).forEach(p=>{p.x=(p.x+p.vx+w)%w;p.y=(p.y+p.vy+h)%h;cx.globalAlpha=.5*A;cx.fillStyle=p.c;cx.fillRect(p.x,p.y,p.r*.6,p.r*.6)});
+ const q=pts.slice(0,app?(PF.bg=='full'?300:110):N).map(p=>[...pr(p[0],p[1],p[2],ax,ay,S,X0,Y0),p[3]]).sort((a,b)=>a[2]-b[2]);
  q.forEach(p=>{cx.globalAlpha=A*Math.min(1,Math.max(.1,(p[2]-.65)*1.3));cx.fillStyle=p[3];cx.beginPath();cx.arc(p[0],p[1],1.3*p[2]*(S/220+.5),0,D);cx.fill()});
  cx.lineWidth=2;cx.shadowBlur=14;
- [0,1,2,3].forEach(k=>{const R=1.35+k*.15,tl=.5+k*.7,sp=t*(.5+k*.15)*(k%2?-1:1);cx.strokeStyle=cx.shadowColor=CL[k];cx.globalAlpha=A*.55;cx.beginPath();
+ [0,1,2,3].slice(0,app?2:4).forEach(k=>{const R=1.35+k*.15,tl=.5+k*.7,sp=t*(.5+k*.15)*(k%2?-1:1);cx.strokeStyle=cx.shadowColor=CL[k];cx.globalAlpha=A*.55;cx.beginPath();
   for(let i=0;i<=80;i++){const th=i/80*D+sp,p=pr(R*Math.cos(th),R*Math.sin(th)*Math.sin(tl),R*Math.sin(th)*Math.cos(tl),ax,ay,S,X0,Y0);i?cx.lineTo(p[0],p[1]):cx.moveTo(p[0],p[1])}cx.stroke();
   const th=sp+t*1.3+k,p=pr(R*Math.cos(th),R*Math.sin(th)*Math.sin(tl),R*Math.sin(th)*Math.cos(tl),ax,ay,S,X0,Y0);cx.globalAlpha=A;cx.fillStyle=CL[k];cx.beginPath();cx.arc(p[0],p[1],5*p[2],0,D);cx.fill()});
  cx.shadowBlur=0;cx.globalAlpha=1}
  requestAnimationFrame(dr)})()})();
 /* session extras: presence, theme, profile */
 auth.onAuthStateChanged(u=>{if(!u){window._v2&&location.reload();return}if(window._v2)return;window._v2=1;
- const ping=()=>db.doc('users/'+u.uid).update({seen:Date.now()}).catch(()=>{});ping();setInterval(ping,30000);
- db.doc('users/'+u.uid).onSnapshot(s=>{const d=s.data();if(!d)return;UC[u.uid]=d;applyTheme(d.theme||'#4285F4');wall=d.wall||'aurora';
-  $('#mename').textContent=d.name;$('#meav').outerHTML=avt(d).replace('class="av','id="meav" style="cursor:pointer" class="av');$('#meav').onclick=openProfile},er);
+ const ping=()=>db.doc('users/'+u.uid).update({seen:Date.now()}).catch(()=>{});ping();setInterval(ping,60000);
+ db.doc('users/'+u.uid).onSnapshot(s=>{const d=s.data();if(!d)return;hdr(d)},er);
  window.Notification&&Notification.permission=='default'&&Notification.requestPermission()});
 function openProfile(){PIC='';const u=my,m=$('#prof');m.classList.remove('hide');
  m.innerHTML=`<div class="box"><h3>Your profile</h3><label id="pp">${avt(u)}<input type="file" accept="image/*" hidden onchange="pic(this)"></label><small style="text-align:center;color:var(--m)">Tap photo to change</small><input id="pn" value="${e(u.name)}" placeholder="Name"><input id="pa" value="${e(u.about||'')}" placeholder="About"><div>${CL.map(c=>`<i class="sw" style="background:${c}" onclick="applyTheme('${c}')"></i>`).join('')}<input type="color" value="${TH}" oninput="applyTheme(this.value)"></div><select id="pw"><option value="aurora" ${wall=='aurora'?'selected':''}>Animated aurora wallpaper</option><option value="plain" ${wall=='plain'?'selected':''}>Plain dark</option></select><div style="display:flex;gap:8px"><button class="pri" onclick="saveProf()">Save</button><button onclick="$('#prof').classList.add('hide')">Close</button><button class="red" onclick="auth.signOut()">Sign out</button></div></div>`}
@@ -281,6 +306,102 @@ $('#lgbig').innerHTML=LOGO(1);$('#lgsm').innerHTML=LOGO(2);$('#lgem').innerHTML=
 $('#ttl').innerHTML='<span class="g">1M</span> '+[...'TeamSpace'].map((c,i)=>`<i style="animation-delay:${.3+i*.07}s">${c}</i>`).join('');
 const WD=['conversations','video calls','tasks','teams'];let wi=0;
 setInterval(()=>{const r=$('#rot');r.style.animation='none';void r.offsetWidth;r.style.animation='';r.textContent=WD[++wi%4]},2200);
+</script>
+<script>
+/* ===== v3 ===== */
+const AR=firebase.firestore.FieldValue.arrayRemove,MEET='https://confo.1mltd.org/',AC=window.AudioContext||window.webkitAudioContext;
+var LH='',RE=null,MR,CHK=[],MT,WI='🚀',WC='#4285F4',WSIG='',WH='',WF='all',WSQ=0,WB={},HK='';
+const rail=k=>['c','w','m','s'].forEach(x=>$('#r-'+x).classList.toggle('on',x==k)),stop=()=>[unT,unW,unM,unU,unC].forEach(f=>f&&f()),
+ lk=t=>e(t).replace(/(https?:\/\/[^\s<]+)/g,u=>`<a href="${u}" target="_blank" rel="noopener">${u}</a>`),
+ emptyHtml=()=>`<div class="empty"><div style="width:120px;margin:auto">${LOGO(4)}</div><h2 style="margin-top:12px;color:var(--t)">1M TeamSpace</h2><p>Select a chat or workspace to begin</p></div>`;
+function beep(){if(PF.mute||!AC)return;try{const a=new AC(),o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=880;g.gain.setValueAtTime(.08,a.currentTime);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+.25);o.start();o.stop(a.currentTime+.25)}catch(x){}}
+function applyPF(){document.body.classList.toggle('cp',!!PF.cp);document.body.classList.toggle('rm',!!PF.rm);$('#app').style.zoom=(PF.fs||100)/100}
+function pf(k,v){PF[k]=v;localStorage.setItem('pf',JSON.stringify(PF));applyPF()}applyPF();
+function hdr(d){UC[me.uid]=d;applyTheme(d.theme||'#4285F4');wall=d.wall||'aurora';const k=d.name+'|'+(d.photo||'').length;if(k==HK)return;HK=k;$('#mename').textContent=d.name;$('#rav').innerHTML=avt(d)}
+addEventListener('keydown',x=>{if((x.ctrlKey||x.metaKey)&&x.key=='k'){x.preventDefault();setTab('c');setTimeout(()=>$('#sq')&&$('#sq').focus(),60)}if(x.key=='Escape')$('#prof').classList.add('hide')});
+/* sidebar list */
+function setTab(t){tab=t;rail(t);$('#addbox').innerHTML=t=='c'?`<input id="q" style="flex:1" placeholder="Add by Google email" onkeydown="if(event.key=='Enter')addContact()"><button class="pri" onclick="addContact()">Add</button><input id="sq" style="flex-basis:100%" placeholder="Search chats (Ctrl+K)" oninput="renderList()">`:`<button class="pri" style="flex:1" onclick="openWsModal()">+ New workspace</button>`;LH='';renderList()}
+async function renderList(){let h;
+ if(tab!='c')h=wss.map(w=>`<div class="row ${W&&W.id==w.id?'on':''}" onclick="openWs('${w.id}')"><div class="av" style="background:${w.color||'var(--g)'};border-radius:14px;font-size:20px">${w.icon||e(w.name[0])}</div><div style="min-width:0"><b>${e(w.name)}</b><div class="pv">${w.members.length} members · ${(w.owner||w.admins[0])==me.uid?'👑 owner':w.admins.includes(me.uid)?'⭐ admin':'member'}</div></div></div>`).join('')||'<p class="empty" style="padding:30px">Create a workspace to start assigning tasks.</p>';
+ else{const q=(($('#sq')||{}).value||'').toLowerCase(),L={};chats.forEach(c=>{const o=c.members.find(x=>x!=me.uid);if(o)L[o]=c});
+  const ids=[...new Set([...(my.contacts||[]),...Object.keys(L)])],us=await Promise.all(ids.map(async i=>({i,...await U(i)}))),pins=my.pins||[],ms=x=>(L[x]&&L[x].ts&&L[x].ts.toMillis)?L[x].ts.toMillis():0;
+  us.sort((a,b)=>(pins.includes(b.i)-pins.includes(a.i))||ms(b.i)-ms(a.i));
+  h=us.filter(u=>(u.name||'').toLowerCase().includes(q)).map(u=>{const c=L[u.i],un=c&&c.ts&&c.lastBy!=me.uid&&ms(u.i)>(c['rd_'+me.uid]||0)&&cur!=u.i;
+   return`<div class="row ${cur==u.i?'on':''}" onclick="openChat('${u.i}')">${avt(u)}<div style="min-width:0;flex:1"><b>${e(u.name)}</b><div class="pv" style="${un?'color:var(--t);font-weight:600':''}">${c?(c.lastBy==me.uid?'✓ ':'')+e(c.last):e(u.about||u.email)}</div></div><div style="text-align:right"><small style="color:var(--m)">${c&&c.ts?tm(c.ts):''}</small><div style="display:flex;gap:6px;justify-content:flex-end;align-items:center">${un?'<i class="ud"></i>':''}<span class="pn ${pins.includes(u.i)?'on':''}" onclick="event.stopPropagation();pin('${u.i}')">📌</span></div></div></div>`}).join('')||'<p class="empty" style="padding:30px">No contacts yet. Add someone who has signed up.</p>'}
+ if(h!==LH){LH=h;$('#list').innerHTML=h}}
+const pin=i=>db.doc('users/'+me.uid).update({pins:(my.pins||[]).includes(i)?AR(i):AU(i)}).catch(er);
+/* chat */
+function st(){const h=$('#hs');if(!h||!cur)return;const t=CD['ty_'+cur],tx=(t&&Date.now()-t<4000)?'typing…':PU.hs?'':on(PU)?'online':PU.seen?'last seen '+new Date(PU.seen).toLocaleString([],{hour:'2-digit',minute:'2-digit',day:'numeric',month:'short'}):'';
+ if(h.textContent!=tx)h.textContent=tx;const k=(PU.name||'')+(PU.photo||'').length;if(h.dataset.k!=k){h.dataset.k=k;$('#hn').textContent=PU.name||'';$('#ha').innerHTML=avt(PU)}}
+async function openChat(id){cur=id;W=null;stop();rail('c');$('#app').classList.add('open');LH='';renderList();PU=await U(id);CD={};MS={};RE=null;FIRST=1;
+ $('#main').innerHTML=`<div class="hd"><button class="bk" onclick="$('#app').classList.remove('open')">←</button><span id="ha"></span><div style="flex:1;min-width:0"><b id="hn"></b><div id="hs" style="font-size:12px;color:var(--m)"></div></div><button class="grn" onclick="startCall(false)" title="Audio call">📞</button><button class="pri" onclick="startCall(true)" title="Video call">🎥</button><button style="background:linear-gradient(135deg,#FBBC05,#EA4335)" onclick="meetWith('${id}')" title="Start a meeting">Meet</button></div><div id="msgs"></div><div id="rep" class="hide"></div><div id="emo" class="hide"></div><div class="send"><button onclick="emo()">😊</button><label class="att">📎<input type="file" accept="image/*" hidden onchange="sendImg(this)"></label><button id="mic" onclick="rec()">🎤</button><input id="mi" placeholder="Type a message" oninput="typing()" onkeydown="if(event.key=='Enter')sendMsg()"><button class="pri" onclick="sendMsg()">Send</button></div>`;st();
+ unU=db.doc('users/'+id).onSnapshot(x=>{PU=UC[id]=x.data()||{};st()},er);unC=db.doc('chats/'+cid(id)).onSnapshot(x=>{CD=x.data()||{};st()},er);
+ unM=db.collection('chats/'+cid(id)+'/messages').orderBy('ts').onSnapshot(paint,er)}
+function msgHtml(id,m,mine){if(m.del)return`<div class="m dl">🚫 This message was deleted<small>${tm(m.ts)}</small></div>`;const rx=Object.values(m.rx||{}).join('');
+ return`<div class="m ${mine?'me':''}">${m.re?`<div class="qt"><b>${e(m.re.n)}</b>${e(m.re.t)}</div>`:''}${m.img?`<img class="mi" src="${m.img}" onclick="window.open(this.src)">`:''}${m.aud?`<audio controls src="${m.aud}"></audio>`:''}${m.text?lk(m.text):''}<small>${m.edited?'edited · ':''}${tm(m.ts)}${mine?(m.read?' <span style="color:var(--g)">✓✓</span>':' ✓'):''}</small>${rx?`<span class="rx">${rx}</span>`:''}</div><div class="ac">${mine&&m.text?`<button onclick="editMsg('${id}')">✎ Edit</button>`:''}<button onclick="replyTo('${id}')">↩ Reply</button><button onclick="react('${id}')">❤️</button>${mine?`<button onclick="delMsg('${id}')">🗑</button>`:''}</div>`}
+function paint(sn){const b=$('#msgs');if(!b)return;const near=b.scrollHeight-b.scrollTop-b.clientHeight<160,bt=db.batch(),ids=new Set(sn.docs.map(d=>d.id));let n=0,inc=0,lastIn=0;
+ [...b.children].forEach(c=>{if(!ids.has(c.dataset.id))c.remove()});
+ sn.docs.forEach(d=>{const m=d.data(),mine=m.from==me.uid,old=MS[d.id];MS[d.id]=m;if(!mine){lastIn=1;if(!old&&!FIRST)inc++}
+  if(!mine&&!m.read&&!document.hidden&&!d.metadata.hasPendingWrites){bt.update(d.ref,{read:true});n++}
+  const sig=JSON.stringify([m.text,m.edited,m.del,m.read,m.rx,!!m.ts]);let el=[...b.children].find(c=>c.dataset.id==d.id);if(el&&el.dataset.sig==sig)return;
+  const nw=!el;if(nw){el=document.createElement('div');el.dataset.id=d.id;b.appendChild(el)}el.dataset.sig=sig;el.className='mw '+(mine?'me':'')+(nw&&!FIRST?' new':'');el.innerHTML=msgHtml(d.id,m,mine)});
+ n&&bt.commit().catch(()=>{});if(near||FIRST)b.scrollTop=b.scrollHeight;if(inc)beep();
+ if(lastIn&&!document.hidden&&(FIRST||inc))db.doc('chats/'+cid(cur)).update({['rd_'+me.uid]:Date.now()}).catch(()=>{});FIRST=0}
+function post(to,d,last){const c=cid(to);db.doc('chats/'+c).set({members:[me.uid,to].sort(),last,lastBy:me.uid,ts:TS(),['rd_'+me.uid]:Date.now()},{merge:true}).catch(er);return db.collection('chats/'+c+'/messages').add({from:me.uid,ts:TS(),read:false,text:'',...d}).catch(er)}
+function sendMsg(extra){const i=$('#mi'),t=i.value.trim();if(!t&&!extra)return;i.value='';const d={text:t,...(extra||{})};if(RE){d.re=RE;RE=null;$('#rep').classList.add('hide')}
+ post(cur,d,t?t.slice(0,60):(d.img?'📷 Photo':'🎤 Voice message'))}
+function replyTo(id){const m=MS[id];RE={n:m.from==me.uid?'You':PU.name,t:(m.text||(m.img?'📷 Photo':'🎤 Voice message')).slice(0,80)};const r=$('#rep');r.classList.remove('hide');r.innerHTML=`↩ Replying to <b>${e(RE.n)}</b>: ${e(RE.t)} <a style="cursor:pointer;float:right" onclick="RE=null;$('#rep').classList.add('hide')">✕</a>`;$('#mi').focus()}
+function sendImg(inp){const f=inp.files[0];inp.value='';if(!f)return;const im=new Image();im.onload=()=>{const k=Math.min(1,900/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);let q=.72,u=c.toDataURL('image/jpeg',q);while(u.length>700000&&q>.3){q-=.1;u=c.toDataURL('image/jpeg',q)}sendMsg({img:u})};im.src=URL.createObjectURL(f)}
+async function rec(){const b=$('#mic');if(MR&&MR.state=='recording'){MR.stop();return}
+ try{const s=await navigator.mediaDevices.getUserMedia({audio:true});MR=new MediaRecorder(s);CHK=[];MR.ondataavailable=x=>CHK.push(x.data);
+  MR.onstop=()=>{s.getTracks().forEach(t=>t.stop());b.textContent='🎤';b.classList.remove('red');clearTimeout(MT);const bl=new Blob(CHK,{type:MR.mimeType});if(bl.size>480000)return toast('Voice note too long (max about 1 minute).');const r=new FileReader();r.onload=()=>sendMsg({aud:r.result});r.readAsDataURL(bl)};
+  MR.start();b.textContent='⏹';b.classList.add('red');MT=setTimeout(()=>MR.state=='recording'&&MR.stop(),60000)}catch(x){toast('Allow microphone access to record.')}}
+/* meetings */
+function meetWith(id){window.open(MEET,'_blank','noopener');post(id,{text:'📹 Join my meeting: '+MEET},'📹 Meeting invite')}
+const inviteMeet=i=>{post(i,{text:'📹 Join my meeting: '+MEET},'📹 Meeting invite');toast('Invite sent')};
+async function openMeet(){rail('m');cur=null;W=null;stop();$('#app').classList.add('open');
+ const ids=[...new Set([...(my.contacts||[]),...chats.flatMap(c=>c.members).filter(x=>x!=me.uid)])],us=await Promise.all(ids.map(async i=>({i,...await U(i)})));
+ $('#main').innerHTML=`<div class="hd"><button class="bk" onclick="$('#app').classList.remove('open')">←</button><b>Meetings</b></div><div class="set"><section style="text-align:center"><div style="font-size:42px">📹</div><h3>Start a meeting</h3><p style="color:var(--m);margin:6px 0 14px">Instant video meetings for your team on 1M Conference.</p><button class="pri" onclick="window.open(MEET,'_blank','noopener')">Start meeting now</button> <button onclick="navigator.clipboard.writeText(MEET).then(()=>toast('Link copied'))">Copy link</button></section><section><h3>Invite contacts</h3>${us.map(u=>`<div class="sr"><span style="display:flex;gap:10px;align-items:center">${avt(u)}${e(u.name)}</span><button class="grn" onclick="inviteMeet('${u.i}')">Send invite</button></div>`).join('')||'<p style="color:var(--m)">Add contacts first.</p>'}</section></div>`}
+/* settings */
+const tgl=(on,fn)=>`<label class="tg"><input type="checkbox" ${on?'checked':''} onchange="${fn}"><i></i></label>`;
+function openSettings(){rail('s');cur=null;W=null;stop();$('#app').classList.add('open');
+ $('#main').innerHTML=`<div class="hd"><button class="bk" onclick="$('#app').classList.remove('open')">←</button><b>Settings</b></div><div class="set">
+ <section><h3>Appearance</h3><div class="sr"><span>Accent colour</span><div>${CL.map(c=>`<i class="sw" style="background:${c}" onclick="saveTheme('${c}')"></i>`).join('')}<input type="color" value="${TH}" onchange="saveTheme(this.value)"></div></div>
+ <div class="sr"><span>3D background</span><select onchange="pf('bg',this.value)"><option value="light" ${PF.bg=='light'||!PF.bg?'selected':''}>Light (fewer particles)</option><option value="full" ${PF.bg=='full'?'selected':''}>Full</option><option value="off" ${PF.bg=='off'?'selected':''}>Off · pure black</option></select></div>
+ <div class="sr"><span>Compact chat</span>${tgl(PF.cp,"pf('cp',this.checked)")}</div><div class="sr"><span>Reduce motion</span>${tgl(PF.rm,"pf('rm',this.checked)")}</div>
+ <div class="sr"><span>Text size</span><input type="range" min="90" max="120" value="${PF.fs||100}" onchange="pf('fs',this.value)"></div></section>
+ <section><h3>Notifications</h3><div class="sr"><span>Message sound</span>${tgl(!PF.mute,"pf('mute',!this.checked)")}</div><div class="sr"><span>Desktop notifications</span><button onclick="Notification.requestPermission().then(p=>toast('Notifications '+p))">Enable</button></div></section>
+ <section><h3>Privacy</h3><div class="sr"><span>Hide online status &amp; last seen</span>${tgl(my.hs,"db.doc('users/'+me.uid).update({hs:this.checked}).catch(er)")}</div></section>
+ <section><h3>Account</h3><div class="sr"><span>${e(me.email)}</span><span><button onclick="openProfile()">Edit profile</button> <button class="red" onclick="auth.signOut()">Sign out</button></span></div></section>
+ <section><h3>Tips</h3><p style="color:var(--m);font-size:13px;line-height:1.7">Ctrl+K searches chats · 📌 pins a chat · ↩ replies to a message · 🎤 records a voice note · drag task cards between columns · Meet opens 1M Conference.</p></section></div>`}
+function saveTheme(c){applyTheme(c);db.doc('users/'+me.uid).update({theme:c}).catch(er)}
+/* workspaces */
+function openWsModal(){const m=$('#prof');m.classList.remove('hide');WI='🚀';WC='#4285F4';
+ m.innerHTML=`<div class="box wide"><h3>Create workspace</h3><div style="display:flex;gap:10px"><div id="wiv" class="wicon">🚀</div><input id="wn" style="flex:1" placeholder="Workspace name (e.g. Design Team)"></div><input id="wd" placeholder="Description (optional)"><div class="pk">${['🚀','💼','🎯','🧠','🎨','🛠️','📈','🌍','⚡','🔥'].map(x=>`<span onclick="WI='${x}';$('#wiv').textContent='${x}'">${x}</span>`).join('')}</div><div>${CL.map(c=>`<i class="sw" style="background:${c}" onclick="WC='${c}';$('#wiv').style.background='${c}'"></i>`).join('')}</div><input id="wm" placeholder="Invite members by email (comma separated, optional)"><small style="color:var(--m)">You become the owner with the highest access. Only people who have signed up can be invited.</small><div style="display:flex;gap:8px"><button class="pri" onclick="mkWs()">Create workspace</button><button onclick="$('#prof').classList.add('hide')">Cancel</button></div></div>`;setTimeout(()=>$('#wn').focus(),50)}
+async function mkWs(){const n=$('#wn').value.trim();if(!n)return toast('Give your workspace a name.');const mem=[me.uid];
+ for(const x of $('#wm').value.split(',').map(x=>x.trim().toLowerCase()).filter(Boolean)){const q=await db.collection('users').where('emailLower','==',x).get();if(q.empty)toast(x+' has not signed up yet.');else if(!mem.includes(q.docs[0].id)){mem.push(q.docs[0].id);UC[q.docs[0].id]=q.docs[0].data()}}
+ try{const r=await db.collection('workspaces').add({name:n,desc:$('#wd').value.trim(),icon:WI,color:WC,owner:me.uid,admins:[me.uid],members:mem,ts:TS()});$('#prof').classList.add('hide');setTab('w');openWs(r.id)}catch(x){er(x)}}
+function openWs(id){cur=null;WSIG='';WH='';stop();W=null;T=[];$('#app').classList.add('open');
+ unW=db.doc('workspaces/'+id).onSnapshot(x=>{if(!x.exists)return;W={id,...x.data()};renderWs()},er);
+ unT=db.collection('workspaces/'+id+'/tasks').orderBy('ts').onSnapshot(x=>{T=x.docs.map(d=>({id:d.id,...d.data()}));renderWs()},er);LH='';renderList()}
+async function renderWs(){if(!W||!W.members||!$('#main'))return;const q=++WSQ,ow=W.owner||W.admins[0],isO=ow==me.uid,A=W.admins.includes(me.uid),ms=await Promise.all(W.members.map(async i=>({i,...await U(i)})));if(q!=WSQ||!W)return;
+ const nm=i=>(ms.find(m=>m.i==i)||{}).name||'Removed user',sig=JSON.stringify([W.id,W.name,W.desc,W.icon,W.color,W.members,W.admins,ow,ms.map(m=>m.name+(m.photo||'').length)]);
+ if(sig!=WSIG){WSIG=sig;WH='';$('#main').innerHTML=`<div class="hd"><button class="bk" onclick="$('#app').classList.remove('open')">←</button><div class="wic" style="background:${W.color||'#34A853'}">${W.icon||e(W.name[0])}</div><div style="flex:1;min-width:0"><b>${e(W.name)}</b><div class="pv">${e(W.desc||'')}</div></div><button onclick="$('#mem').classList.toggle('hide')">👥 ${ms.length}</button><button style="background:linear-gradient(135deg,#FBBC05,#EA4335)" onclick="meetWs()">Meet</button>${isO?'<button class="red" onclick="delWs()">Delete</button>':''}</div>
+ <div id="mem" class="pnl hide">${ms.map(m=>`<div class="mrow">${avt(m)}<div style="flex:1;min-width:0"><b>${e(m.name)}</b><div class="pv">${e(m.email)}</div></div><span class="bdg">${m.i==ow?'👑 Owner':W.admins.includes(m.i)?'⭐ Admin':'Member'}</span>${isO&&m.i!=ow?`<button onclick="setAdm('${m.i}',${!W.admins.includes(m.i)})">${W.admins.includes(m.i)?'Remove admin':'Make admin'}</button>`:''}${(isO&&m.i!=ow)||(A&&!W.admins.includes(m.i)&&m.i!=me.uid)?`<button class="red" onclick="rmMem('${m.i}')">Remove</button>`:''}</div>`).join('')}${A?`<div class="send" style="padding:10px 0 0;background:none"><input id="mm" style="flex:1" placeholder="Add member by email" onkeydown="if(event.key=='Enter')addMember()"><button class="grn" onclick="addMember()">Add</button></div>`:''}<small style="color:var(--m)">The owner can promote or demote admins and delete the workspace. Admins can add members and assign tasks.</small></div>
+ ${A?`<div class="bar"><input id="tt" style="flex:1;min-width:140px" placeholder="New task title" onkeydown="if(event.key=='Enter')addTask()"><select id="ta">${ms.map(m=>`<option value="${m.i}">${e(m.name)}</option>`).join('')}</select><select id="tp"><option value="h">High</option><option value="m" selected>Medium</option><option value="l">Low</option></select><input id="td" type="date"><button class="pri" onclick="addTask()">Assign task</button></div>`:'<div class="bar" style="color:var(--m)">Only admins can assign tasks. Drag or move the tasks assigned to you.</div>'}<div id="wsp"></div><div id="wsb" class="board"></div>`}
+ const cols=[['todo','To do','var(--r)'],['doing','In progress','var(--y)'],['done','Done','var(--g)']],PR={h:['High','var(--r)'],m:['Medium','var(--y)'],l:['Low','var(--g)']},tk=WF=='mine'?T.filter(t=>t.to==me.uid):T,dn=T.filter(t=>t.status=='done').length,pc=T.length?Math.round(dn/T.length*100):0,td=new Date().toISOString().slice(0,10);
+ const card=t=>{const can=A||t.to==me.uid,p=PR[t.pr||'m'],od=t.due&&t.due<td&&t.status!='done';return`<div class="card" ${can?`draggable="true" ondragstart="event.dataTransfer.setData('t','${t.id}')"`:''}><div style="display:flex;justify-content:space-between;gap:6px"><b>${e(t.title)}</b><span class="bdg" style="color:${p[1]};border-color:${p[1]}">${p[0]}</span></div><small>👤 ${e(nm(t.to))}${t.due?` · <span style="color:${od?'var(--r)':'inherit'}">📅 ${e(t.due)}${od?' overdue':''}</span>`:''}</small>${can?cols.filter(x=>x[0]!=t.status).map(x=>`<button onclick="setSt('${t.id}','${x[0]}')">→ ${x[1]}</button>`).join(''):''}${A?`<button class="red" onclick="delT('${t.id}')">✕</button>`:''}</div>`};
+ const h1=`<div class="prog"><div class="pb"><i style="width:${pc}%"></i></div><span>${pc}% done · ${dn}/${T.length}</span><span style="flex:1"></span><button class="${WF=='all'?'pri':''}" onclick="setWF('all')">All tasks</button><button class="${WF=='mine'?'pri':''}" onclick="setWF('mine')">My tasks</button></div>`,
+ h2=cols.map(([k,n,c])=>`<div class="col" style="border-color:${c}" ondragover="event.preventDefault()" ondrop="dropT(event,'${k}')"><b>${n} (${tk.filter(t=>t.status==k).length})</b>${tk.filter(t=>t.status==k).map(card).join('')}</div>`).join('');
+ if(h1+h2!==WH){WH=h1+h2;$('#wsp').innerHTML=h1;$('#wsb').innerHTML=h2}}
+const setWF=v=>{WF=v;WH='';renderWs()},dropT=(ev,k)=>{ev.preventDefault();const id=ev.dataTransfer.getData('t');id&&setSt(id,k)};
+function addTask(){const t=$('#tt').value.trim();if(!t)return toast('Enter a task title.');db.collection('workspaces/'+W.id+'/tasks').add({title:t,to:$('#ta').value,due:$('#td').value,pr:$('#tp').value,status:'todo',by:me.uid,ts:TS()}).catch(er);$('#tt').value=''}
+async function addMember(){const x=$('#mm').value.trim().toLowerCase();if(!x)return;const q=await db.collection('users').where('emailLower','==',x).get();if(q.empty)return toast('That person has not signed up yet.');UC[q.docs[0].id]=q.docs[0].data();db.doc('workspaces/'+W.id).update({members:AU(q.docs[0].id)}).then(()=>toast('Member added')).catch(er)}
+const setAdm=(i,on)=>db.doc('workspaces/'+W.id).update({admins:on?AU(i):AR(i)}).catch(er);
+function rmMem(i){if(!confirm('Remove this member from the workspace?'))return;const o=(W.owner||W.admins[0])==me.uid;db.doc('workspaces/'+W.id).update(o?{members:AR(i),admins:AR(i)}:{members:AR(i)}).catch(er)}
+function meetWs(){window.open(MEET,'_blank','noopener');W.members.filter(i=>i!=me.uid).forEach(i=>post(i,{text:'📹 Join the "'+W.name+'" meeting: '+MEET},'📹 Meeting invite'));toast('Meeting link sent to workspace members')}
+async function delWs(){if(!confirm('Delete "'+W.name+'" and all its tasks permanently?'))return;const id=W.id;stop();try{const t=await db.collection('workspaces/'+id+'/tasks').get(),b=db.batch();t.docs.forEach(d=>b.delete(d.ref));await b.commit();await db.doc('workspaces/'+id).delete();W=null;$('#app').classList.remove('open');$('#main').innerHTML=emptyHtml();toast('Workspace deleted')}catch(x){er(x)}}
+setTab('c');
 </script>
 </body>
 </html>
