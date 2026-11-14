@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>1MillionX</title>
+<title>1M TeamSpace</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--b:#4285F4;--r:#EA4335;--y:#FBBC05;--g:#34A853;--bg:#0c0e13;--p:#151922;--p2:#1d222d;--t:#eef1f6;--m:#8d96a8;--grad:linear-gradient(90deg,var(--b),var(--r),var(--y),var(--g))}
+:root{--b:#4285F4;--r:#EA4335;--y:#FBBC05;--g:#34A853;--bg:#000;--p:#0b0d12;--p2:#151922;--t:#eef1f6;--m:#8d96a8;--grad:linear-gradient(90deg,var(--b),var(--r),var(--y),var(--g))}
 *{box-sizing:border-box;margin:0;font-family:Poppins,sans-serif}
 body{background:var(--bg);color:var(--t);height:100vh;overflow:hidden}
 .hide{display:none!important}
@@ -53,30 +53,73 @@ main{flex:1;display:flex;flex-direction:column;min-width:0;background:radial-gra
 #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--r);padding:12px 20px;border-radius:12px;z-index:20}
 @media(max-width:760px){aside{width:100%}main{display:none}#app.open aside{display:none}#app.open main{display:flex}.board{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+#bg{position:fixed;inset:0;z-index:0}#app{position:relative;z-index:1}
+aside{background:#151922d9;backdrop-filter:blur(16px)}main{background:none}
+.hd,.send,.bar{background:#151922d9;backdrop-filter:blur(12px)}.add{flex-wrap:wrap}
+.mw{display:flex;flex-direction:column;align-items:flex-start;max-width:75%}.mw.me{align-self:flex-end;align-items:flex-end}
+.mw .m{max-width:100%;word-break:break-word;position:relative}.m.dl{opacity:.55;font-style:italic}
+.ac button{background:none;padding:2px 6px;font-size:12px;opacity:.55}.ac button:hover{opacity:1}
+.rx{position:absolute;bottom:-12px;right:8px;background:var(--p2);border-radius:10px;padding:0 6px;font-size:13px}
+.pv{font-size:12px;color:var(--m);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#emo{display:flex;flex-wrap:wrap;gap:4px;padding:8px 12px;background:var(--p);animation:pop .2s}#emo span{font-size:24px;cursor:pointer;transition:.15s}#emo span:hover{transform:scale(1.4)}
+.modal{position:fixed;inset:0;background:#000a;z-index:15;display:grid;place-items:center}
+.box{background:var(--p);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:12px;width:min(92vw,360px);animation:pop .25s}
+.box .av{width:84px;height:84px;margin:auto;cursor:pointer}.sw{display:inline-block;width:26px;height:26px;border-radius:50%;margin-right:8px;cursor:pointer;vertical-align:middle}
+
+body{background:#000}#login{display:flex;align-items:center;padding:0 8vw;text-align:left;background:none}
+.hero{max-width:580px;position:relative;z-index:2}
+#lgbig{width:116px;height:116px;margin-bottom:20px;filter:drop-shadow(0 0 24px #4285f477);animation:fy 4s ease-in-out infinite}
+.lgs{width:100%;height:100%}.rg{transform-origin:50px 50px;animation:spin 14s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fy{50%{transform:translateY(-10px)}}
+.ttl{font-size:clamp(40px,6.5vw,76px);font-weight:700;line-height:1.05;letter-spacing:-1.5px}
+.ttl .g{background:var(--grad);background-size:300%;-webkit-background-clip:text;color:transparent;animation:sh 5s linear infinite}
+.ttl i{font-style:normal;display:inline-block;opacity:0;animation:up .7s cubic-bezier(.2,.9,.3,1.2) forwards}
+@keyframes up{from{opacity:0;transform:translateY(30px) rotateX(80deg)}to{opacity:1;transform:none}}
+.tag{color:#aab2c3;font-size:18px;margin:16px 0 28px}#rot{display:inline-block;color:var(--y);animation:wd 2.2s}
+@keyframes wd{0%{opacity:0;transform:translateY(12px)}15%,85%{opacity:1;transform:none}100%{opacity:0}}
+.gw{position:relative;display:inline-block;border-radius:44px;overflow:hidden;padding:3px;box-shadow:0 0 40px #4285f433}
+.gw::before{content:'';position:absolute;inset:-120%;background:conic-gradient(#4285F4,#EA4335,#FBBC05,#34A853,#4285F4);animation:spin 3s linear infinite}
+.gw .gbtn{position:relative;margin:0}.gbtn:hover{transform:scale(1.04)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chips span{padding:8px 14px;border-radius:30px;border:1px solid #ffffff22;background:#ffffff0d;backdrop-filter:blur(8px);font-size:13px;animation:fy 5s ease-in-out infinite}
+.chips span:nth-child(1){border-color:#4285f488}.chips span:nth-child(2){border-color:#ea433588;animation-delay:-1.2s}.chips span:nth-child(3){border-color:#fbbc0588;animation-delay:-2.4s}.chips span:nth-child(4){border-color:#34a85388;animation-delay:-3.6s}
+.fine{color:var(--m);font-size:12px;margin-top:18px}
+@media(max-width:900px){#login{justify-content:center;text-align:center;padding:0 20px}.chips{justify-content:center}#lgbig{margin:0 auto 20px}}
+aside{background:#07080cd9}.hd,.send,.bar{background:#07080ccc}
+.brand{display:flex;align-items:center;gap:10px;padding:14px 16px 2px;font-size:19px;font-weight:700;letter-spacing:-.3px}#lgsm{width:36px;height:36px;filter:drop-shadow(0 0 8px #4285f488)}
+.m{background:#12151c;border:1px solid #ffffff14}.m.me{background:linear-gradient(135deg,var(--b),color-mix(in srgb,var(--b) 55%,#000));border-color:transparent}
+.hd{position:relative}.hd::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--grad);background-size:300%;animation:sh 6s linear infinite;opacity:.8}
+.row:hover,.row.on{background:linear-gradient(90deg,#4285f41f,transparent)}
+button.pri{background:linear-gradient(135deg,var(--b),#1a5fd8)}button.grn{background:linear-gradient(135deg,#34A853,#1e7e34)}button.red{background:linear-gradient(135deg,#EA4335,#b3261e)}
+.card{border:1px solid #ffffff12}.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px #0008}.col{background:#0b0d12cc;backdrop-filter:blur(10px)}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#2a3140;border-radius:6px}
 </style>
 </head>
 <body>
-<div id="login">
-  <div class="blob" style="background:var(--b);left:8%;top:10%"></div><div class="blob" style="background:var(--r);right:8%;top:20%;animation-delay:-3s"></div>
-  <div class="blob" style="background:var(--y);left:30%;bottom:-5%;animation-delay:-5s"></div><div class="blob" style="background:var(--g);right:25%;bottom:5%;animation-delay:-7s"></div>
-  <div style="position:relative"><div class="logo">1MillionX</div><p style="color:var(--m)">Chat, call and get work done in one place.</p>
-  <button class="gbtn" onclick="login()"><svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4 7.1-10 7.1-17.5z"/><path fill="#FBBC05" d="M10.5 28.7a14.5 14.5 0 010-9.4l-7.9-6.1a24 24 0 000 21.6l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.9 2.3-8.4 2.3-6.3 0-11.600-4.100-13.500-9.800l-7.900 6.100C6.500 42.600 14.600 48 24 48z"/></svg>Continue with Google</button></div>
-</div>
+<canvas id="bg"></canvas>
+<div id="prof" class="hide modal"></div>
+<div id="login"><div class="hero"><div id="lgbig"></div><h1 class="ttl" id="ttl">1M TeamSpace</h1>
+<p class="tag">A new home for <b id="rot">conversations</b>, built for teams that ship.</p>
+<div class="gw"><button class="gbtn" onclick="login()"><svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4 7.1-10 7.1-17.5z"/><path fill="#FBBC05" d="M10.5 28.7a14.5 14.5 0 010-9.4l-7.9-6.1a24 24 0 000 21.6l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.9 2.3-8.4 2.3-6.3 0-11.600-4.100-13.500-9.800l-7.900 6.100C6.500 42.600 14.600 48 24 48z"/></svg>Continue with Google</button></div>
+<div class="chips"><span>💬 Realtime chat</span><span>🎥 HD video calls</span><span>✅ Task tracking</span><span>👥 Admin workspaces</span></div>
+<p class="fine">Secure Google sign-in. Only registered members can be added.</p></div></div>
 
 <div id="app" class="hide">
   <aside>
+    <div class="brand"><span id="lgsm"></span><b>1M TeamSpace</b></div>
     <div class="top"><div class="av" id="meav"></div><b id="mename" style="flex:1"></b><button onclick="auth.signOut()">Sign out</button></div>
     <div class="tabs"><button id="t-c" class="on" onclick="setTab('c')">Chats</button><button id="t-w" onclick="setTab('w')">Workspaces</button></div>
     <div class="add" id="addbox"></div>
     <div id="list"></div>
   </aside>
-  <main id="main"><div class="empty"><div class="logo" style="font-size:34px">Pick a chat or workspace</div></div></main>
+  <main id="main"><div class="empty"><div id="lgem" style="width:120px;margin:auto"></div><h2 style="margin-top:12px;color:var(--t)">1M TeamSpace</h2><p>Select a chat or workspace to begin</p></div></main>
 </div>
 
 <div id="ring" class="hide"><div class="av pulse" id="ringav"></div><h2 id="ringtxt"></h2>
   <div style="display:flex;gap:14px"><button class="grn" onclick="answer()">Accept</button><button class="red" onclick="declineCall()">Decline</button></div></div>
 <div id="call" class="hide"><video id="rv" autoplay playsinline></video><video id="lv" autoplay playsinline muted></video>
-  <div style="display:flex;gap:12px"><button onclick="tg('audio')">Mute</button><button onclick="tg('video')">Camera</button><button class="red" onclick="endCall(true)">Hang up</button></div></div>
+  <div style="display:flex;gap:12px"><button onclick="tg('audio')">Mute</button><button onclick="tg('video')">Camera</button><button onclick="share()">Share screen</button><button class="red" onclick="endCall(true)">Hang up</button></div></div>
 <div id="toast" class="hide"></div>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -96,10 +139,10 @@ const cid=o=>[me.uid,o].sort().join('_');
 
 auth.onAuthStateChanged(async u=>{
   if(!u){me=null;$('#login').classList.remove('hide');$('#app').classList.add('hide');return}
-  me=u;await db.doc('users/'+u.uid).set({name:u.displayName,email:u.email,emailLower:u.email.toLowerCase(),photo:u.photoURL||''},{merge:true});
-  $('#login').classList.add('hide');$('#app').classList.remove('hide');$('#mename').textContent=u.displayName;$('#meav').outerHTML=avt({name:u.displayName,photo:u.photoURL}).replace('class="av','id="meav" class="av');
+  me=u;const us=await db.doc('users/'+u.uid).get();await db.doc('users/'+u.uid).set(us.exists?{email:u.email,emailLower:u.email.toLowerCase()}:{name:u.displayName,email:u.email,emailLower:u.email.toLowerCase(),photo:u.photoURL||''},{merge:true});
+  $('#login').classList.add('hide');$('#app').classList.remove('hide');
   db.doc('users/'+u.uid).onSnapshot(s=>{my=s.data()||{};if(tab=='c')renderList()});
-  db.collection('chats').where('members','array-contains',u.uid).onSnapshot(s=>{chats=s.docs.map(d=>d.data());if(tab=='c')renderList()});
+  db.collection('chats').where('members','array-contains',u.uid).onSnapshot(s=>{s.docChanges().forEach(c=>{const d=c.doc.data();if(c.type=='modified'&&d.lastBy&&d.lastBy!=u.uid&&document.hidden&&window.Notification&&Notification.permission=='granted')new Notification('New message',{body:d.last})});chats=s.docs.map(d=>d.data());if(tab=='c')renderList()},er);
   db.collection('workspaces').where('members','array-contains',u.uid).onSnapshot(s=>{wss=s.docs.map(d=>({id:d.id,...d.data()}));if(tab=='w')renderList()});
   db.collection('calls').where('to','==',u.uid).where('state','==','ringing').onSnapshot(s=>s.docChanges().forEach(async c=>{
     if(c.type=='added'&&!pc){inc={id:c.doc.id,...c.doc.data()};const f=await U(inc.from);$('#ringav').outerHTML=avt(f,'pulse').replace('class="av','id="ringav" class="av');$('#ringtxt').textContent=f.name+' is '+(inc.video?'video':'audio')+' calling…';$('#ring').classList.remove('hide')}
@@ -136,7 +179,7 @@ function openWs(id){cur=null;unM&&unM();unT&&unT();unW&&unW();$('#app').classLis
   unT=db.collection('workspaces/'+id+'/tasks').orderBy('ts').onSnapshot(s=>{T=s.docs.map(d=>({id:d.id,...d.data()}));renderWs()});renderList()}
 async function renderWs(){if(!W||!W.members)return;const A=W.admins.includes(me.uid),ms=await Promise.all(W.members.map(async i=>({i,...await U(i)})));const nm=i=>(ms.find(m=>m.i==i)||{}).name||'?';
   const cols=[['todo','To do','var(--r)'],['doing','In progress','var(--y)'],['done','Done','var(--g)']];
-  $('#main').innerHTML=`<div class="hd"><button onclick="$('#app').classList.remove('open')">←</button><b>${e(W.name)}</b><span style="color:var(--m);font-size:13px">${ms.map(m=>e(m.name)).join(', ')}</span></div>
+  $('#main').innerHTML=`<div class="hd"><button onclick="$('#app').classList.remove('open')">←</button><b>${e(W.name)}</b><span style="color:var(--m);font-size:13px">${ms.map(m=>e(m.name)+(W.admins.includes(m.i)?' ⭐':A?` <a style="cursor:pointer;color:var(--b)" onclick="mkAdm('${m.i}')">[make admin]</a>`:'')).join(', ')}</span></div>
   ${A?`<div class="bar"><input id="tt" placeholder="New task title"><select id="ta">${ms.map(m=>`<option value="${m.i}">${e(m.name)}</option>`).join('')}</select><input id="td" type="date"><button class="pri" onclick="addTask()">Assign task</button>
   <input id="mm" placeholder="Add member by email"><button class="grn" onclick="addMember()">Add member</button></div>`:'<div class="bar" style="color:var(--m)">Only admins can assign tasks. You can update the status of tasks assigned to you.</div>'}
   <div class="board">${cols.map(([k,n,c])=>`<div class="col" style="border-color:${c}"><b>${n} (${T.filter(t=>t.status==k).length})</b>${T.filter(t=>t.status==k).map(t=>`<div class="card"><b>${e(t.title)}</b><small>${e(nm(t.to))}${t.due?' · due '+e(t.due):''}</small>${(A||t.to==me.uid)?cols.filter(x=>x[0]!=k).map(x=>`<button onclick="setSt('${t.id}','${x[0]}')">${x[1]}</button>`).join(''):''}${A?`<button class="red" onclick="delT('${t.id}')">Delete</button>`:''}</div>`).join('')}</div>`).join('')}</div>`}
@@ -148,7 +191,7 @@ async function addMember(){const q=$('#mm').value.trim().toLowerCase();const s=a
 
 /* ---------- Audio / video calls (WebRTC, signalling via Firestore) ---------- */
 let pc,ls,cref,inc,cu=[];
-async function media(video){ls=await navigator.mediaDevices.getUserMedia({audio:true,video});pc=new RTCPeerConnection({iceServers:[{urls:'stun:stun.l.google.com:19302'}]});
+async function media(video){ls=await navigator.mediaDevices.getUserMedia({audio:true,video});pc=new RTCPeerConnection({iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:['turn:openrelay.metered.ca:80','turn:openrelay.metered.ca:443?transport=tcp'],username:'openrelayproject',credential:'openrelayproject'}]});
   ls.getTracks().forEach(t=>pc.addTrack(t,ls));pc.ontrack=x=>{$('#rv').srcObject=x.streams[0]};$('#lv').srcObject=ls;$('#lv').classList.toggle('hide',!video);
   pc.onicecandidate=x=>x.candidate&&cref.collection('c').add({by:me.uid,c:x.candidate.toJSON()});$('#call').classList.remove('hide')}
 const cands=()=>cu.push(cref.collection('c').onSnapshot(s=>s.docChanges().forEach(c=>{const d=c.doc.data();if(c.type=='added'&&d.by!=me.uid)pc.addIceCandidate(d.c).catch(()=>{})})));
@@ -161,6 +204,83 @@ async function answer(){$('#ring').classList.add('hide');cref=db.doc('calls/'+in
 const declineCall=()=>{db.doc('calls/'+inc.id).update({state:'ended'});inc=null;$('#ring').classList.add('hide')};
 function endCall(push){cu.forEach(f=>f());cu=[];if(push&&cref)cref.update({state:'ended'});pc&&pc.close();ls&&ls.getTracks().forEach(t=>t.stop());pc=ls=inc=null;$('#call').classList.add('hide')}
 const tg=k=>ls&&ls.getTracks().filter(t=>t.kind==k).forEach(t=>t.enabled=!t.enabled);
+</script>
+<script>
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(()=>{});
+db.enablePersistence({synchronizeTabs:true}).catch(()=>{});
+const er=x=>toast(x.code=='permission-denied'?'Permission denied: publish the new Firestore rules':x.message);
+let TH='#4285F4',wall='aurora',PIC='',CD={},PU={},MS={},FIRST=1,lt=0,unU,unC;
+const on=u=>Date.now()-(u.seen||0)<75000,tm=t=>t?t.toDate().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'…';
+const applyTheme=c=>{TH=c;document.documentElement.style.setProperty('--b',c)};
+/* animated Google-colour background */
+const cv=$('#bg'),cx=cv.getContext('2d'),CL=['#4285F4','#EA4335','#FBBC05','#34A853'],P=[];
+const rs=()=>{cv.width=innerWidth;cv.height=innerHeight};rs();onresize=rs;
+for(let i=0;i<48;i++)P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:2+Math.random()*3,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6,c:CL[i%4]});
+(function(){const N=480,pts=[],D=Math.PI*2;
+for(let i=0;i<N;i++){const y=1-2*(i+.5)/N,r=Math.sqrt(1-y*y),a=i*2.39996;pts.push([Math.cos(a)*r,y,Math.sin(a)*r,CL[i%4]])}
+let mx=0,my2=0;addEventListener('mousemove',e=>{mx=e.clientX/innerWidth-.5;my2=e.clientY/innerHeight-.5});
+const pr=(x,y,z,ax,ay,S,X0,Y0)=>{let a=x*Math.cos(ay)+z*Math.sin(ay),c=-x*Math.sin(ay)+z*Math.cos(ay),b=y*Math.cos(ax)-c*Math.sin(ax);c=y*Math.sin(ax)+c*Math.cos(ax);const f=3/(3+c);return[X0+a*S*f,Y0+b*S*f,f]};
+(function dr(){const w=cv.width,h=cv.height,t=Date.now()/1000,app=!$('#app').classList.contains('hide');
+ cx.globalAlpha=1;cx.shadowBlur=0;cx.fillStyle='#000';cx.fillRect(0,0,w,h);
+ if(wall!='plain'){const A=app?.4:(w>900?1:.6),S=Math.min(w,h)*(app?.42:.3),X0=w*(app?.74:(w>900?.7:.5))+mx*40,Y0=h*.5+my2*40,ay=t*.3+mx*1.5,ax=.45+Math.sin(t*.35)*.3+my2;
+ for(let k=0;k<4;k++){const x=X0+Math.cos(t*.4+k*1.6)*S*1.3,y=Y0+Math.sin(t*.5+k*2)*S*.9,g=cx.createRadialGradient(x,y,0,x,y,S*1.4);g.addColorStop(0,CL[k]+(app?'14':'26'));g.addColorStop(1,'#0000');cx.fillStyle=g;cx.fillRect(0,0,w,h)}
+ P.forEach(p=>{p.x=(p.x+p.vx+w)%w;p.y=(p.y+p.vy+h)%h;cx.globalAlpha=.5*A;cx.fillStyle=p.c;cx.fillRect(p.x,p.y,p.r*.6,p.r*.6)});
+ const q=pts.map(p=>[...pr(p[0],p[1],p[2],ax,ay,S,X0,Y0),p[3]]).sort((a,b)=>a[2]-b[2]);
+ q.forEach(p=>{cx.globalAlpha=A*Math.min(1,Math.max(.1,(p[2]-.65)*1.3));cx.fillStyle=p[3];cx.beginPath();cx.arc(p[0],p[1],1.3*p[2]*(S/220+.5),0,D);cx.fill()});
+ cx.lineWidth=2;cx.shadowBlur=14;
+ [0,1,2,3].forEach(k=>{const R=1.35+k*.15,tl=.5+k*.7,sp=t*(.5+k*.15)*(k%2?-1:1);cx.strokeStyle=cx.shadowColor=CL[k];cx.globalAlpha=A*.55;cx.beginPath();
+  for(let i=0;i<=80;i++){const th=i/80*D+sp,p=pr(R*Math.cos(th),R*Math.sin(th)*Math.sin(tl),R*Math.sin(th)*Math.cos(tl),ax,ay,S,X0,Y0);i?cx.lineTo(p[0],p[1]):cx.moveTo(p[0],p[1])}cx.stroke();
+  const th=sp+t*1.3+k,p=pr(R*Math.cos(th),R*Math.sin(th)*Math.sin(tl),R*Math.sin(th)*Math.cos(tl),ax,ay,S,X0,Y0);cx.globalAlpha=A;cx.fillStyle=CL[k];cx.beginPath();cx.arc(p[0],p[1],5*p[2],0,D);cx.fill()});
+ cx.shadowBlur=0;cx.globalAlpha=1}
+ requestAnimationFrame(dr)})()})();
+/* session extras: presence, theme, profile */
+auth.onAuthStateChanged(u=>{if(!u){window._v2&&location.reload();return}if(window._v2)return;window._v2=1;
+ const ping=()=>db.doc('users/'+u.uid).update({seen:Date.now()}).catch(()=>{});ping();setInterval(ping,30000);
+ db.doc('users/'+u.uid).onSnapshot(s=>{const d=s.data();if(!d)return;UC[u.uid]=d;applyTheme(d.theme||'#4285F4');wall=d.wall||'aurora';
+  $('#mename').textContent=d.name;$('#meav').outerHTML=avt(d).replace('class="av','id="meav" style="cursor:pointer" class="av');$('#meav').onclick=openProfile},er);
+ window.Notification&&Notification.permission=='default'&&Notification.requestPermission()});
+function openProfile(){PIC='';const u=my,m=$('#prof');m.classList.remove('hide');
+ m.innerHTML=`<div class="box"><h3>Your profile</h3><label id="pp">${avt(u)}<input type="file" accept="image/*" hidden onchange="pic(this)"></label><small style="text-align:center;color:var(--m)">Tap photo to change</small><input id="pn" value="${e(u.name)}" placeholder="Name"><input id="pa" value="${e(u.about||'')}" placeholder="About"><div>${CL.map(c=>`<i class="sw" style="background:${c}" onclick="applyTheme('${c}')"></i>`).join('')}<input type="color" value="${TH}" oninput="applyTheme(this.value)"></div><select id="pw"><option value="aurora" ${wall=='aurora'?'selected':''}>Animated aurora wallpaper</option><option value="plain" ${wall=='plain'?'selected':''}>Plain dark</option></select><div style="display:flex;gap:8px"><button class="pri" onclick="saveProf()">Save</button><button onclick="$('#prof').classList.add('hide')">Close</button><button class="red" onclick="auth.signOut()">Sign out</button></div></div>`}
+function pic(i){const f=i.files[0];if(!f)return;const im=new Image();im.onload=()=>{const c=document.createElement('canvas');c.width=c.height=160;const s=Math.min(im.width,im.height);c.getContext('2d').drawImage(im,(im.width-s)/2,(im.height-s)/2,s,s,0,0,160,160);PIC=c.toDataURL('image/jpeg',.8);$('#pp').firstElementChild.outerHTML=`<img class="av" src="${PIC}">`};im.src=URL.createObjectURL(f)}
+async function saveProf(){try{await db.doc('users/'+me.uid).update({name:$('#pn').value.trim()||my.name,about:$('#pa').value.trim(),photo:PIC||my.photo||'',theme:TH,wall:$('#pw').value});$('#prof').classList.add('hide')}catch(x){er(x)}}
+/* sidebar */
+function setTab(t){tab=t;$('#t-c').classList.toggle('on',t=='c');$('#t-w').classList.toggle('on',t=='w');$('#addbox').innerHTML=t=='c'?'<input id="q" style="flex:1" placeholder="Add by Google email"><button class="pri" onclick="addContact()">Add</button><input id="sq" style="flex-basis:100%" placeholder="Search chats" oninput="renderList()">':'<button class="pri" style="flex:1" onclick="newWs()">+ Create workspace</button>';renderList()}
+async function renderList(){if(tab!='c'){$('#list').innerHTML=wss.map(w=>`<div class="row ${W&&W.id==w.id?'on':''}" onclick="openWs('${w.id}')"><div class="av" style="background:var(--g)">${e(w.name[0])}</div><div><b>${e(w.name)}</b><div class="pv">${w.members.length} members${w.admins.includes(me.uid)?' · you are admin':''}</div></div></div>`).join('')||'<p class="empty" style="padding:30px">Create a workspace to start assigning tasks.</p>';return}
+ const q=(($('#sq')||{}).value||'').toLowerCase(),L={};chats.forEach(c=>{const o=c.members.find(x=>x!=me.uid);if(o)L[o]=c});
+ const ids=[...new Set([...(my.contacts||[]),...Object.keys(L)])],us=await Promise.all(ids.map(async i=>({i,...await U(i)})));
+ const ms=x=>(L[x]&&L[x].ts&&L[x].ts.toMillis)?L[x].ts.toMillis():0;us.sort((a,b)=>ms(b.i)-ms(a.i));
+ $('#list').innerHTML=us.filter(u=>(u.name||'').toLowerCase().includes(q)).map(u=>`<div class="row ${cur==u.i?'on':''}" onclick="openChat('${u.i}')">${avt(u)}<div style="min-width:0;flex:1"><b>${e(u.name)}</b><div class="pv">${L[u.i]?(L[u.i].lastBy==me.uid?'✓ ':'')+e(L[u.i].last):e(u.about||u.email)}</div></div><small style="color:var(--m)">${L[u.i]&&L[u.i].ts?tm(L[u.i].ts):''}</small></div>`).join('')||'<p class="empty" style="padding:30px">No contacts yet. Add someone who has signed up.</p>'}
+/* chat */
+const EM='😀 😂 🤣 😍 😘 😎 🥳 😢 😭 😡 😮 🤔 😴 🤗 👍 👎 👏 🙏 💪 🤝 🔥 ❤️ 💯 🎉 ✨ 👀 🚀 ✅ 💙 💚 💛 🧡'.split(' ');
+const emo=()=>{const p=$('#emo');p.classList.toggle('hide');p.innerHTML=EM.map(x=>`<span onclick="ins('${x}')">${x}</span>`).join('')},ins=x=>{const i=$('#mi');i.value+=x;i.focus()};
+function st(){const h=$('#hs');if(!h||!cur)return;$('#hn').textContent=PU.name||'';$('#ha').innerHTML=avt(PU);const t=CD['ty_'+cur];h.textContent=(t&&Date.now()-t<4000)?'typing…':on(PU)?'online':PU.seen?'last seen '+new Date(PU.seen).toLocaleString([],{hour:'2-digit',minute:'2-digit',day:'numeric',month:'short'}):''}
+setInterval(st,3000);
+async function openChat(id){cur=id;W=null;[unT,unW,unM,unU,unC].forEach(f=>f&&f());$('#app').classList.add('open');renderList();PU=await U(id);CD={};FIRST=1;
+ $('#main').innerHTML=`<div class="hd"><button onclick="$('#app').classList.remove('open')">←</button><span id="ha"></span><div style="flex:1"><b id="hn"></b><div id="hs" style="font-size:12px;color:var(--m)"></div></div><button class="grn" onclick="startCall(false)">📞 Call</button><button class="pri" onclick="startCall(true)">🎥 Video</button></div><div id="msgs"></div><div id="emo" class="hide"></div><div class="send"><button onclick="emo()">😊</button><input id="mi" placeholder="Type a message" oninput="typing()" onkeydown="if(event.key=='Enter')sendMsg()"><button class="pri" onclick="sendMsg()">Send ➤</button></div>`;st();
+ unU=db.doc('users/'+id).onSnapshot(s=>{PU=UC[id]=s.data()||{};st()},er);unC=db.doc('chats/'+cid(id)).onSnapshot(s=>{CD=s.data()||{};st()},er);
+ unM=db.collection('chats/'+cid(id)+'/messages').orderBy('ts').onSnapshot(s=>{const b=$('#msgs');if(!b)return;const near=b.scrollHeight-b.scrollTop-b.clientHeight<140,bt=db.batch();let n=0;MS={};
+  b.innerHTML=s.docs.map(d=>{const m=MS[d.id]=d.data(),mine=m.from==me.uid;if(!mine&&!m.read&&!document.hidden&&!d.metadata.hasPendingWrites){bt.update(d.ref,{read:true});n++}
+   const rx=Object.values(m.rx||{}).join('');
+   return`<div class="mw ${mine?'me':''}"><div class="m ${mine?'me':''} ${m.del?'dl':''}">${m.del?'🚫 This message was deleted':e(m.text)}<small>${m.edited&&!m.del?'edited · ':''}${tm(m.ts)}${mine&&!m.del?(m.read?' <span style="color:var(--g)">✓✓</span>':' ✓'):''}</small>${rx?`<span class="rx">${rx}</span>`:''}</div>${m.del?'':`<div class="ac">${mine?`<button title="Edit" onclick="editMsg('${d.id}')">✎ Edit</button><button title="Delete" onclick="delMsg('${d.id}')">🗑</button>`:''}<button title="React" onclick="react('${d.id}')">❤️</button></div>`}</div>`}).join('');
+  n&&bt.commit().catch(()=>{});if(near||FIRST)b.scrollTop=b.scrollHeight;FIRST=0},er)}
+function sendMsg(){const i=$('#mi'),t=i.value.trim();if(!t)return;i.value='';const c=cid(cur);
+ db.doc('chats/'+c).set({members:[me.uid,cur].sort(),last:t.slice(0,60),lastBy:me.uid,ts:TS()},{merge:true}).catch(er);
+ db.collection('chats/'+c+'/messages').add({from:me.uid,text:t,ts:TS(),read:false}).catch(er)}
+const mref=id=>db.doc('chats/'+cid(cur)+'/messages/'+id);
+function editMsg(id){const t=prompt('Edit message',MS[id].text);if(t&&t.trim()&&t.trim()!=MS[id].text)mref(id).update({text:t.trim(),edited:true}).catch(er)}
+const delMsg=id=>confirm('Delete this message for everyone?')&&mref(id).update({del:true,text:''}).catch(er);
+const react=id=>mref(id).update({['rx.'+me.uid]:(MS[id].rx||{})[me.uid]?firebase.firestore.FieldValue.delete():'❤️'}).catch(er);
+function typing(){if(Date.now()-lt<2500||!CD.members)return;lt=Date.now();db.doc('chats/'+cid(cur)).update({['ty_'+me.uid]:Date.now()}).catch(()=>{})}
+const mkAdm=i=>db.doc('workspaces/'+W.id).update({admins:AU(i)}).catch(er);
+async function share(){if(!pc)return;const snd=pc.getSenders().find(x=>x.track&&x.track.kind=='video');if(!snd)return toast('Start a video call to share your screen.');
+ try{const d=await navigator.mediaDevices.getDisplayMedia({video:true}),t=d.getVideoTracks()[0],o=ls.getVideoTracks()[0];snd.replaceTrack(t);$('#lv').srcObject=d;t.onended=()=>{snd.replaceTrack(o);$('#lv').srcObject=ls}}catch(x){}}
+</script>
+<script>
+const LOGO=n=>`<svg viewBox="0 0 100 100" class="lgs"><defs><filter id="gl${n}"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><radialGradient id="rg${n}"><stop offset="0" stop-color="#1b2030"/><stop offset="1" stop-color="#05060a"/></radialGradient></defs><circle cx="50" cy="50" r="34" fill="url(#rg${n})"/><g class="rg" filter="url(#gl${n})" fill="none" stroke-width="7" stroke-linecap="round"><circle cx="50" cy="50" r="42" stroke="#4285F4" stroke-dasharray="53 211" transform="rotate(-80 50 50)"/><circle cx="50" cy="50" r="42" stroke="#EA4335" stroke-dasharray="53 211" transform="rotate(10 50 50)"/><circle cx="50" cy="50" r="42" stroke="#FBBC05" stroke-dasharray="53 211" transform="rotate(100 50 50)"/><circle cx="50" cy="50" r="42" stroke="#34A853" stroke-dasharray="53 211" transform="rotate(190 50 50)"/></g><text x="50" y="59" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="700" font-size="28" fill="#fff" letter-spacing="-1">1M</text></svg>`;
+$('#lgbig').innerHTML=LOGO(1);$('#lgsm').innerHTML=LOGO(2);$('#lgem').innerHTML=LOGO(3);
+$('#ttl').innerHTML='<span class="g">1M</span> '+[...'TeamSpace'].map((c,i)=>`<i style="animation-delay:${.3+i*.07}s">${c}</i>`).join('');
+const WD=['conversations','video calls','tasks','teams'];let wi=0;
+setInterval(()=>{const r=$('#rot');r.style.animation='none';void r.offsetWidth;r.style.animation='';r.textContent=WD[++wi%4]},2200);
 </script>
 </body>
 </html>
