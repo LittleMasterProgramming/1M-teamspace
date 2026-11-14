@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1MillionX</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--b:#4285F4;--r:#EA4335;--y:#FBBC05;--g:#34A853;--bg:#0c0e13;--p:#151922;--p2:#1d222d;--t:#eef1f6;--m:#8d96a8;--grad:linear-gradient(90deg,var(--b),var(--r),var(--y),var(--g))}
+*{box-sizing:border-box;margin:0;font-family:Poppins,sans-serif}
+body{background:var(--bg);color:var(--t);height:100vh;overflow:hidden}
+.hide{display:none!important}
+button{cursor:pointer;border:0;color:var(--t);background:var(--p2);border-radius:12px;padding:9px 14px;font-weight:500;transition:.2s}
+button:hover{transform:translateY(-2px);filter:brightness(1.2)}
+button.pri{background:var(--b)}button.red{background:var(--r)}button.grn{background:var(--g)}
+input,select{background:var(--p2);border:1px solid #2a3140;border-radius:12px;color:var(--t);padding:10px 12px;outline:0;min-width:0}
+input:focus,select:focus{border-color:var(--b);box-shadow:0 0 0 3px #4285f433}
+#login{height:100vh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden}
+.blob{position:absolute;width:360px;height:360px;border-radius:50%;filter:blur(90px);opacity:.28;animation:fl 9s ease-in-out infinite}
+@keyframes fl{50%{transform:translate(60px,-50px) scale(1.2)}}
+.logo{font-size:56px;font-weight:700;background:var(--grad);background-size:300%;-webkit-background-clip:text;color:transparent;animation:sh 5s linear infinite}
+@keyframes sh{to{background-position:300%}}
+.gbtn{background:#fff;color:#222;padding:14px 26px;font-size:15px;margin-top:26px;display:inline-flex;gap:12px;align-items:center;border-radius:40px;font-weight:600}
+#app{display:flex;height:100vh}
+aside{width:340px;background:var(--p);display:flex;flex-direction:column;border-right:1px solid #232a38}
+.top{padding:16px;display:flex;align-items:center;gap:10px;border-bottom:3px solid;border-image:var(--grad) 1}
+.av{width:42px;height:42px;border-radius:50%;background:var(--b);display:grid;place-items:center;font-weight:600;flex:none;object-fit:cover}
+.tabs{display:flex;gap:6px;padding:10px}.tabs button{flex:1}.tabs .on{background:var(--b)}
+.add{display:flex;gap:6px;padding:0 10px 10px}.add input{flex:1}
+#list{overflow:auto;flex:1}
+.row{display:flex;gap:12px;align-items:center;padding:12px 16px;cursor:pointer;transition:.2s;border-left:4px solid transparent}
+.row:hover,.row.on{background:var(--p2);border-left-color:var(--y)}
+main{flex:1;display:flex;flex-direction:column;min-width:0;background:radial-gradient(circle at 80% 10%,#4285f414,transparent 50%),radial-gradient(circle at 10% 90%,#34a85312,transparent 50%)}
+.empty{margin:auto;text-align:center;color:var(--m)}
+.hd{padding:14px 18px;display:flex;align-items:center;gap:12px;background:var(--p);border-bottom:1px solid #232a38}
+.hd b{flex:1}
+#msgs{flex:1;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:8px}
+.m{max-width:70%;padding:9px 14px;border-radius:16px;background:var(--p2);animation:pop .25s}
+.m.me{align-self:flex-end;background:var(--b)}
+.m small{display:block;font-size:10px;opacity:.6;text-align:right}
+@keyframes pop{from{transform:scale(.85);opacity:0}}
+.send{display:flex;gap:8px;padding:12px;background:var(--p)}.send input{flex:1}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:18px;overflow:auto;flex:1}
+.col{background:var(--p);border-radius:16px;padding:12px;border-top:4px solid}
+.card{background:var(--p2);border-radius:12px;padding:12px;margin-top:10px;animation:pop .25s}
+.card small{color:var(--m);display:block;margin:4px 0 8px}.card button{padding:5px 9px;font-size:12px;margin-right:4px}
+.bar{display:flex;gap:8px;padding:12px 18px;flex-wrap:wrap;background:var(--p)}
+#call,#ring{position:fixed;inset:0;background:#05070bf2;z-index:9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+#rv{width:min(92vw,900px);max-height:70vh;background:#000;border-radius:20px;border:2px solid var(--b)}
+#lv{position:absolute;right:24px;top:24px;width:150px;border-radius:14px;border:2px solid var(--g);background:#000}
+.pulse{width:96px;height:96px;font-size:36px;animation:pu 1.4s infinite}
+@keyframes pu{0%{box-shadow:0 0 0 0 #34a85399}100%{box-shadow:0 0 0 40px #34a85300}}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--r);padding:12px 20px;border-radius:12px;z-index:20}
+@media(max-width:760px){aside{width:100%}main{display:none}#app.open aside{display:none}#app.open main{display:flex}.board{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div id="login">
+  <div class="blob" style="background:var(--b);left:8%;top:10%"></div><div class="blob" style="background:var(--r);right:8%;top:20%;animation-delay:-3s"></div>
+  <div class="blob" style="background:var(--y);left:30%;bottom:-5%;animation-delay:-5s"></div><div class="blob" style="background:var(--g);right:25%;bottom:5%;animation-delay:-7s"></div>
+  <div style="position:relative"><div class="logo">1MillionX</div><p style="color:var(--m)">Chat, call and get work done in one place.</p>
+  <button class="gbtn" onclick="login()"><svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4 7.1-10 7.1-17.5z"/><path fill="#FBBC05" d="M10.5 28.7a14.5 14.5 0 010-9.4l-7.9-6.1a24 24 0 000 21.6l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.9 2.3-8.4 2.3-6.3 0-11.600-4.100-13.500-9.800l-7.900 6.100C6.500 42.600 14.600 48 24 48z"/></svg>Continue with Google</button></div>
+</div>
+
+<div id="app" class="hide">
+  <aside>
+    <div class="top"><div class="av" id="meav"></div><b id="mename" style="flex:1"></b><button onclick="auth.signOut()">Sign out</button></div>
+    <div class="tabs"><button id="t-c" class="on" onclick="setTab('c')">Chats</button><button id="t-w" onclick="setTab('w')">Workspaces</button></div>
+    <div class="add" id="addbox"></div>
+    <div id="list"></div>
+  </aside>
+  <main id="main"><div class="empty"><div class="logo" style="font-size:34px">Pick a chat or workspace</div></div></main>
+</div>
+
+<div id="ring" class="hide"><div class="av pulse" id="ringav"></div><h2 id="ringtxt"></h2>
+  <div style="display:flex;gap:14px"><button class="grn" onclick="answer()">Accept</button><button class="red" onclick="declineCall()">Decline</button></div></div>
+<div id="call" class="hide"><video id="rv" autoplay playsinline></video><video id="lv" autoplay playsinline muted></video>
+  <div style="display:flex;gap:12px"><button onclick="tg('audio')">Mute</button><button onclick="tg('video')">Camera</button><button class="red" onclick="endCall(true)">Hang up</button></div></div>
+<div id="toast" class="hide"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+// 1) PASTE YOUR FIREBASE WEB CONFIG HERE (Project settings > Your apps > Web app)
+firebase.initializeApp({apiKey:"YOUR_API_KEY",authDomain:"YOUR_PROJECT.firebaseapp.com",projectId:"YOUR_PROJECT_ID",appId:"YOUR_APP_ID"});
+const auth=firebase.auth(),db=firebase.firestore(),TS=firebase.firestore.FieldValue.serverTimestamp,AU=firebase.firestore.FieldValue.arrayUnion;
+const $=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let me,my={},chats=[],wss=[],tab='c',cur=null,W=null,T=[],unM,unW,unT,UC={};
+const toast=t=>{const x=$('#toast');x.textContent=t;x.classList.remove('hide');setTimeout(()=>x.classList.add('hide'),3200)};
+const login=()=>auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(x=>toast(x.message));
+const U=async id=>UC[id]||(UC[id]=(await db.doc('users/'+id).get()).data()||{name:'Unknown'});
+const avt=(u,c='')=>u.photo?`<img class="av ${c}" src="${e(u.photo)}" referrerpolicy="no-referrer">`:`<div class="av ${c}">${e((u.name||'?')[0])}</div>`;
+const cid=o=>[me.uid,o].sort().join('_');
+
+auth.onAuthStateChanged(async u=>{
+  if(!u){me=null;$('#login').classList.remove('hide');$('#app').classList.add('hide');return}
+  me=u;await db.doc('users/'+u.uid).set({name:u.displayName,email:u.email,emailLower:u.email.toLowerCase(),photo:u.photoURL||''},{merge:true});
+  $('#login').classList.add('hide');$('#app').classList.remove('hide');$('#mename').textContent=u.displayName;$('#meav').outerHTML=avt({name:u.displayName,photo:u.photoURL}).replace('class="av','id="meav" class="av');
+  db.doc('users/'+u.uid).onSnapshot(s=>{my=s.data()||{};if(tab=='c')renderList()});
+  db.collection('chats').where('members','array-contains',u.uid).onSnapshot(s=>{chats=s.docs.map(d=>d.data());if(tab=='c')renderList()});
+  db.collection('workspaces').where('members','array-contains',u.uid).onSnapshot(s=>{wss=s.docs.map(d=>({id:d.id,...d.data()}));if(tab=='w')renderList()});
+  db.collection('calls').where('to','==',u.uid).where('state','==','ringing').onSnapshot(s=>s.docChanges().forEach(async c=>{
+    if(c.type=='added'&&!pc){inc={id:c.doc.id,...c.doc.data()};const f=await U(inc.from);$('#ringav').outerHTML=avt(f,'pulse').replace('class="av','id="ringav" class="av');$('#ringtxt').textContent=f.name+' is '+(inc.video?'video':'audio')+' calling…';$('#ring').classList.remove('hide')}
+    if(c.type=='removed'&&inc&&inc.id==c.doc.id&&!pc)$('#ring').classList.add('hide')}));
+  setTab('c');
+});
+
+function setTab(t){tab=t;$('#t-c').classList.toggle('on',t=='c');$('#t-w').classList.toggle('on',t=='w');
+  $('#addbox').innerHTML=t=='c'?'<input id="q" placeholder="Add by Google email"><button class="pri" onclick="addContact()">Add</button>':'<button class="pri" style="flex:1" onclick="newWs()">+ Create workspace</button>';renderList()}
+
+async function renderList(){
+  if(tab=='c'){const ids=[...new Set([...(my.contacts||[]),...chats.flatMap(c=>c.members).filter(x=>x!=me.uid)])];
+    const us=await Promise.all(ids.map(async i=>({i,...await U(i)})));
+    $('#list').innerHTML=us.map(u=>`<div class="row ${cur==u.i?'on':''}" onclick="openChat('${u.i}')">${avt(u)}<div><b>${e(u.name)}</b><div style="font-size:12px;color:var(--m)">${e(u.email)}</div></div></div>`).join('')||'<p class="empty" style="padding:30px">No contacts yet. Add someone who has signed up with Google.</p>'}
+  else $('#list').innerHTML=wss.map(w=>`<div class="row ${W&&W.id==w.id?'on':''}" onclick="openWs('${w.id}')"><div class="av" style="background:var(--g)">${e(w.name[0])}</div><div><b>${e(w.name)}</b><div style="font-size:12px;color:var(--m)">${w.members.length} members${w.admins.includes(me.uid)?' · you are admin':''}</div></div></div>`).join('')||'<p class="empty" style="padding:30px">Create a workspace to start assigning tasks.</p>'}
+
+async function addContact(){const q=$('#q').value.trim().toLowerCase();if(!q)return;
+  const s=await db.collection('users').where('emailLower','==',q).get();
+  if(s.empty)return toast('That person has not signed up yet. Ask them to join first.');
+  const id=s.docs[0].id;if(id==me.uid)return toast('That is your own account.');
+  UC[id]=s.docs[0].data();await db.doc('users/'+me.uid).update({contacts:AU(id)});$('#q').value='';openChat(id)}
+
+async function openChat(id){cur=id;W=null;unT&&unT();unW&&unW();unM&&unM();$('#app').classList.add('open');renderList();const u=await U(id);
+  $('#main').innerHTML=`<div class="hd"><button onclick="$('#app').classList.remove('open')">←</button>${avt(u)}<b>${e(u.name)}</b><button class="grn" onclick="startCall(false)">Audio call</button><button class="pri" onclick="startCall(true)">Video call</button></div><div id="msgs"></div><div class="send"><input id="mi" placeholder="Type a message" onkeydown="if(event.key=='Enter')sendMsg()"><button class="pri" onclick="sendMsg()">Send</button></div>`;
+  unM=db.collection('chats/'+cid(id)+'/messages').orderBy('ts').onSnapshot(s=>{const b=$('#msgs');if(!b)return;
+    b.innerHTML=s.docs.map(d=>{const m=d.data();return`<div class="m ${m.from==me.uid?'me':''}">${e(m.text)}<small>${m.ts?m.ts.toDate().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'…'}</small></div>`}).join('');b.scrollTop=b.scrollHeight})}
+async function sendMsg(){const i=$('#mi'),t=i.value.trim();if(!t)return;i.value='';const c=cid(cur);
+  await db.doc('chats/'+c).set({members:[me.uid,cur].sort(),last:t,ts:TS()},{merge:true});await db.collection('chats/'+c+'/messages').add({from:me.uid,text:t,ts:TS()})}
+
+/* ---------- Workspaces & tasks ---------- */
+const newWs=async()=>{const n=prompt('Workspace name');if(n&&n.trim()){const r=await db.collection('workspaces').add({name:n.trim(),admins:[me.uid],members:[me.uid],ts:TS()});openWs(r.id)}};
+function openWs(id){cur=null;unM&&unM();unT&&unT();unW&&unW();$('#app').classList.add('open');
+  unW=db.doc('workspaces/'+id).onSnapshot(s=>{W={id,...s.data()};renderWs()});
+  unT=db.collection('workspaces/'+id+'/tasks').orderBy('ts').onSnapshot(s=>{T=s.docs.map(d=>({id:d.id,...d.data()}));renderWs()});renderList()}
+async function renderWs(){if(!W||!W.members)return;const A=W.admins.includes(me.uid),ms=await Promise.all(W.members.map(async i=>({i,...await U(i)})));const nm=i=>(ms.find(m=>m.i==i)||{}).name||'?';
+  const cols=[['todo','To do','var(--r)'],['doing','In progress','var(--y)'],['done','Done','var(--g)']];
+  $('#main').innerHTML=`<div class="hd"><button onclick="$('#app').classList.remove('open')">←</button><b>${e(W.name)}</b><span style="color:var(--m);font-size:13px">${ms.map(m=>e(m.name)).join(', ')}</span></div>
+  ${A?`<div class="bar"><input id="tt" placeholder="New task title"><select id="ta">${ms.map(m=>`<option value="${m.i}">${e(m.name)}</option>`).join('')}</select><input id="td" type="date"><button class="pri" onclick="addTask()">Assign task</button>
+  <input id="mm" placeholder="Add member by email"><button class="grn" onclick="addMember()">Add member</button></div>`:'<div class="bar" style="color:var(--m)">Only admins can assign tasks. You can update the status of tasks assigned to you.</div>'}
+  <div class="board">${cols.map(([k,n,c])=>`<div class="col" style="border-color:${c}"><b>${n} (${T.filter(t=>t.status==k).length})</b>${T.filter(t=>t.status==k).map(t=>`<div class="card"><b>${e(t.title)}</b><small>${e(nm(t.to))}${t.due?' · due '+e(t.due):''}</small>${(A||t.to==me.uid)?cols.filter(x=>x[0]!=k).map(x=>`<button onclick="setSt('${t.id}','${x[0]}')">${x[1]}</button>`).join(''):''}${A?`<button class="red" onclick="delT('${t.id}')">Delete</button>`:''}</div>`).join('')}</div>`).join('')}</div>`}
+const addTask=async()=>{const t=$('#tt').value.trim();if(!t)return;await db.collection('workspaces/'+W.id+'/tasks').add({title:t,to:$('#ta').value,due:$('#td').value,status:'todo',by:me.uid,ts:TS()})};
+const setSt=(id,s)=>db.doc('workspaces/'+W.id+'/tasks/'+id).update({status:s}).catch(x=>toast(x.message));
+const delT=id=>db.doc('workspaces/'+W.id+'/tasks/'+id).delete();
+async function addMember(){const q=$('#mm').value.trim().toLowerCase();const s=await db.collection('users').where('emailLower','==',q).get();
+  if(s.empty)return toast('That person has not signed up yet.');UC[s.docs[0].id]=s.docs[0].data();await db.doc('workspaces/'+W.id).update({members:AU(s.docs[0].id)})}
+
+/* ---------- Audio / video calls (WebRTC, signalling via Firestore) ---------- */
+let pc,ls,cref,inc,cu=[];
+async function media(video){ls=await navigator.mediaDevices.getUserMedia({audio:true,video});pc=new RTCPeerConnection({iceServers:[{urls:'stun:stun.l.google.com:19302'}]});
+  ls.getTracks().forEach(t=>pc.addTrack(t,ls));pc.ontrack=x=>{$('#rv').srcObject=x.streams[0]};$('#lv').srcObject=ls;$('#lv').classList.toggle('hide',!video);
+  pc.onicecandidate=x=>x.candidate&&cref.collection('c').add({by:me.uid,c:x.candidate.toJSON()});$('#call').classList.remove('hide')}
+const cands=()=>cu.push(cref.collection('c').onSnapshot(s=>s.docChanges().forEach(c=>{const d=c.doc.data();if(c.type=='added'&&d.by!=me.uid)pc.addIceCandidate(d.c).catch(()=>{})})));
+async function startCall(video){if(pc)return;try{cref=db.collection('calls').doc();await media(video)}catch(x){return toast('Allow microphone/camera access to call.')}
+  const o=await pc.createOffer();await pc.setLocalDescription(o);await cref.set({from:me.uid,to:cur,video,state:'ringing',offer:{type:o.type,sdp:o.sdp},ts:TS()});
+  let got=false;cu.push(cref.onSnapshot(async s=>{const d=s.data();if(!d)return;if(d.answer&&!got){got=true;await pc.setRemoteDescription(d.answer);cands()}if(d.state=='ended')endCall(false)}))}
+async function answer(){$('#ring').classList.add('hide');cref=db.doc('calls/'+inc.id);try{await media(inc.video)}catch(x){return toast('Allow microphone/camera access to answer.')}
+  await pc.setRemoteDescription(inc.offer);const a=await pc.createAnswer();await pc.setLocalDescription(a);await cref.update({answer:{type:a.type,sdp:a.sdp},state:'active'});cands();
+  cu.push(cref.onSnapshot(s=>{if(s.data()&&s.data().state=='ended')endCall(false)}))}
+const declineCall=()=>{db.doc('calls/'+inc.id).update({state:'ended'});inc=null;$('#ring').classList.add('hide')};
+function endCall(push){cu.forEach(f=>f());cu=[];if(push&&cref)cref.update({state:'ended'});pc&&pc.close();ls&&ls.getTracks().forEach(t=>t.stop());pc=ls=inc=null;$('#call').classList.add('hide')}
+const tg=k=>ls&&ls.getTracks().filter(t=>t.kind==k).forEach(t=>t.enabled=!t.enabled);
+</script>
+</body>
+</html>
